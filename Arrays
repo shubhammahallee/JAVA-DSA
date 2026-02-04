@@ -33,7 +33,7 @@ public class day0 {
     }
 
     public static void productOfArray(int[] arr) {
-        long product = 1; // Changed to long to prevent overflow
+        long product = 1; 
         for (int i = 0; i < arr.length; i++) {
             product *= arr[i];
         }
@@ -42,7 +42,7 @@ public class day0 {
 
     public static void maxOfArray(int[] arr) {
         int max = arr[0];
-        for (int i = 1; i < arr.length; i++) { // Start from 1, not 0
+        for (int i = 1; i < arr.length; i++) { 
             if (arr[i] > max) {
                 max = arr[i];
             }
@@ -52,7 +52,7 @@ public class day0 {
 
     public static void minOfArray(int[] arr) {
         int min = arr[0];
-        for (int i = 1; i < arr.length; i++) { // Start from 1, not 0
+        for (int i = 1; i < arr.length; i++) { 
             if (arr[i] < min) {
                 min = arr[i];
             }
@@ -61,7 +61,7 @@ public class day0 {
     }
 
     public static void sortArray(int[] arr) {
-        int[] sortedArr = arr.clone(); // Don't modify original array
+        int[] sortedArr = arr.clone(); 
         Arrays.sort(sortedArr);
         System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
     }
