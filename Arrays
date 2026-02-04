@@ -1,0 +1,64 @@
+package Arrays;
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class day0 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Array Size: ");
+        int[] arr = new int[sc.nextInt()];
+        System.out.print("Enter Array Elements:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        SumOfArray(arr);
+        productOfArray(arr);
+        maxOfArray(arr);
+        minOfArray(arr);
+        sortArray(arr);
+    }
+
+    public static void SumOfArray(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        System.out.println("Sum of Array: " + sum);
+    }
+
+    public static void productOfArray(int[] arr) {
+        int product = 1;
+        for (int i = 0; i < arr.length; i++) {
+            product *= arr[i];
+        }
+        System.out.println("Product of Array: " + product);
+    }
+
+    public static void maxOfArray(int[] arr) {
+        // int max = Integer.MAX_VALUE;
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        System.out.println("Maximum of Array: " + max);
+    }
+
+    public static void minOfArray(int[] arr) {
+        // int min = Integer.MIN_VALUE;
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        System.out.println("Minimum of Array: " + min);
+    }
+
+    public static void sortArray(int[] arr) {
+        Arrays.sort(arr);
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
+}
