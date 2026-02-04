@@ -103,18 +103,16 @@ public class day0 {
     public static void searchInArray(int[] arr) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Number to Search: ");
-        int num = sc.nextInt();
+        int target = sc.nextInt();
         boolean found = false;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == num) {
+            if (arr[i] == target) {
+                System.out.println("Exist at Index: " + i);
                 found = true;
                 break;
             }
         }
-        // Print result OUTSIDE the loop
-        if (found) {
-            System.out.println("Exist");
-        } else {
+        if (!found) {
             System.out.println("Not Exist");
         }
         sc.close();
