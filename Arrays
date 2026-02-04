@@ -8,7 +8,7 @@ public class day0 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Array Size: ");
         int[] arr = new int[sc.nextInt()];
-        System.out.print("Enter Array Elements:");
+        System.out.print("Enter Array Elements: ");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
@@ -17,6 +17,11 @@ public class day0 {
         maxOfArray(arr);
         minOfArray(arr);
         sortArray(arr);
+        reverseArray(arr);
+        oddEvenCount(arr);
+        modifyArray(arr);
+        searchInArray(arr);
+        sc.close();
     }
 
     public static void SumOfArray(int[] arr) {
@@ -28,7 +33,7 @@ public class day0 {
     }
 
     public static void productOfArray(int[] arr) {
-        int product = 1;
+        long product = 1; // Changed to long to prevent overflow
         for (int i = 0; i < arr.length; i++) {
             product *= arr[i];
         }
@@ -36,9 +41,8 @@ public class day0 {
     }
 
     public static void maxOfArray(int[] arr) {
-        // int max = Integer.MAX_VALUE;
         int max = arr[0];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) { // Start from 1, not 0
             if (arr[i] > max) {
                 max = arr[i];
             }
@@ -47,9 +51,8 @@ public class day0 {
     }
 
     public static void minOfArray(int[] arr) {
-        // int min = Integer.MIN_VALUE;
         int min = arr[0];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) { // Start from 1, not 0
             if (arr[i] < min) {
                 min = arr[i];
             }
@@ -58,7 +61,62 @@ public class day0 {
     }
 
     public static void sortArray(int[] arr) {
-        Arrays.sort(arr);
-        System.out.println("Sorted Array: " + Arrays.toString(arr));
+        int[] sortedArr = arr.clone(); // Don't modify original array
+        Arrays.sort(sortedArr);
+        System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
+    }
+
+    public static void reverseArray(int[] arr) {
+        System.out.print("Reverse: ");
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void oddEvenCount(int[] arr) {
+        int oddCount = 0;
+        int evenCount = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+        System.out.println("Odd Count: " + oddCount);
+        System.out.println("Even Count: " + evenCount);
+    }
+
+    public static void modifyArray(int[] arr) {
+        System.out.print("Modified Array: ");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                System.out.print((10 + arr[i]) + " ");
+            } else {
+                System.out.print((2 * arr[i]) + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void searchInArray(int[] arr) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Number to Search: ");
+        int num = sc.nextInt();
+        boolean found = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == num) {
+                found = true;
+                break;
+            }
+        }
+        // Print result OUTSIDE the loop
+        if (found) {
+            System.out.println("Exist");
+        } else {
+            System.out.println("Not Exist");
+        }
+        sc.close();
     }
 }
