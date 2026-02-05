@@ -24,7 +24,8 @@ public class day0 {
         twoSumOfArray(arr);
         secondMaxOfArray(arr);
         swapArray(arr);
-
+        missingNumber(arr);
+        duplicateNumber(arr);
         sc.close();
     }
 
@@ -165,5 +166,27 @@ public class day0 {
             System.out.print(ele + " ");
 
     }
+
+    public static void missingNumber(int[] arr) {
+        int n = arr.length;
+        int sum = (n * (n + 1)) / 2;
+        int arrSum = 0;
+        for (int i = 0; i < n; i++) {
+            arrSum += arr[i];
+        }
+        System.out.println("Missing Number: " + (sum - arrSum));
+    }
+
+    public static void duplicateNumber(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println("Duplicate Number: " + arr[i]);
+                }
+            }
+        }
+    }
+    
 
 }
