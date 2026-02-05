@@ -21,6 +21,10 @@ public class day0 {
         oddEvenCount(arr);
         modifyArray(arr);
         searchInArray(arr);
+        twoSumOfArray(arr);
+        secondMaxOfArray(arr);
+        swapArray(arr);
+
         sc.close();
     }
 
@@ -33,7 +37,7 @@ public class day0 {
     }
 
     public static void productOfArray(int[] arr) {
-        long product = 1; 
+        long product = 1; // Changed to long to prevent overflow
         for (int i = 0; i < arr.length; i++) {
             product *= arr[i];
         }
@@ -42,7 +46,7 @@ public class day0 {
 
     public static void maxOfArray(int[] arr) {
         int max = arr[0];
-        for (int i = 1; i < arr.length; i++) { 
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
                 max = arr[i];
             }
@@ -52,7 +56,7 @@ public class day0 {
 
     public static void minOfArray(int[] arr) {
         int min = arr[0];
-        for (int i = 1; i < arr.length; i++) { 
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
             }
@@ -61,7 +65,7 @@ public class day0 {
     }
 
     public static void sortArray(int[] arr) {
-        int[] sortedArr = arr.clone(); 
+        int[] sortedArr = arr.clone();
         Arrays.sort(sortedArr);
         System.out.println("Sorted Array: " + Arrays.toString(sortedArr));
     }
@@ -117,4 +121,49 @@ public class day0 {
         }
         sc.close();
     }
+
+    public static void twoSumOfArray(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == sum) {
+                    System.out.println("Exist at Index: " + i + " " + j);
+                }
+            }
+        }
+    }
+
+    public static void secondMaxOfArray(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            System.out.println("Array must have at least 2 elements");
+            return;
+        }
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                secondMax = max;
+                max = arr[i];
+            } else if (arr[i] > secondMax && arr[i] != max) {
+                secondMax = arr[i];
+            }
+        }
+        System.out.println("Second Max: " + secondMax);
+    }
+
+    public static void swapArray(int[] arr) {
+        int n = arr.length;
+        int i = 0, j = n - 1;
+        while (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+        for (int ele : arr)
+            System.out.print(ele + " ");
+
+    }
+
 }
