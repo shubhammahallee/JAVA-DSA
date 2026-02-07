@@ -1,0 +1,137 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class Recursion {
+
+    static final String SEPARATOR = "-----------------------------------------";
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        // n to 1
+        printDescending(n);
+        System.out.println();
+        System.out.println(SEPARATOR);
+
+        // 1 to n
+        printAscending(1, n);
+        System.out.println();
+        System.out.println(SEPARATOR);
+
+        // 1 to n (backtracking)
+        printAscendingBacktracking(n);
+        System.out.println();
+        System.out.println(SEPARATOR);
+
+        // n 1 n pattern
+        if (n > 0) {
+            printMirrorPattern(n);
+            System.out.println();
+        }
+        System.out.println(SEPARATOR);
+
+        // factorial
+        System.out.print("Enter number for factorial: ");
+        int factNum = sc.nextInt();
+        int fact = factorial(factNum);
+        if (fact == -1)
+            System.out.println("Factorial not defined for negative numbers");
+        else
+            System.out.println("Factorial: " + fact);
+        System.out.println(SEPARATOR);
+
+        // fibonacci
+        System.out.print("Enter number for fibonacci: ");
+        int fibNum = sc.nextInt();
+        System.out.println("Fibonacci: " + fibonacci(fibNum));
+        System.out.println(SEPARATOR);
+
+        // palindrome
+        System.out.println("Palindrome: " + isPalindrome(n));
+        System.out.println(SEPARATOR);
+
+        // sum of digits
+        System.out.print("Enter number for sum of digits: ");
+        int sumNum = sc.nextInt();
+        System.out.println("Sum of digits: " + sumOfDigits(sumNum));
+        System.out.println(SEPARATOR);
+
+        sc.close();
+    }
+
+    // n to 1
+    public static void printDescending(int n) {
+        if (n == 0)
+            return;
+        System.out.print(n + " ");
+        printDescending(n - 1);
+    }
+
+    // 1 to n
+    public static void printAscending(int current, int n) {
+        if (current > n)
+            return;
+        System.out.print(current + " ");
+        printAscending(current + 1, n);
+    }
+
+    // 1 to n (backtracking)
+    public static void printAscendingBacktracking(int n) {
+        if (n == 0)
+            return;
+        printAscendingBacktracking(n - 1);
+        System.out.print(n + " ");
+    }
+
+    // n 1 n pattern
+    public static void printMirrorPattern(int n) {
+        if (n == 1) {
+            System.out.print("1 ");
+            return;
+        }
+        System.out.print(n + " ");
+        printMirrorPattern(n - 1);
+        System.out.print(n + " ");
+    }
+
+    // factorial
+    public static int factorial(int n) {
+        if (n < 0)
+            return -1;
+        if (n == 0 || n == 1)
+            return 1;
+        return n * factorial(n - 1);
+    }
+
+    // fibonacci
+    public static int fibonacci(int n) {
+        if (n < 0)
+            return -1;
+        if (n == 0 || n == 1)
+            return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // palindrome check
+    public static boolean isPalindrome(int n) {
+        return n == reverseNumber(Math.abs(n), 0);
+    }
+
+    private static int reverseNumber(int n, int rev) {
+        if (n == 0)
+            return rev;
+        return reverseNumber(n / 10, rev * 10 + n % 10);
+    }
+
+    // sum of digits
+    public static int sumOfDigits(int n) {
+        n = Math.abs(n);
+        if (n == 0)
+            return 0;
+        return n % 10 + sumOfDigits(n / 10);
+    }
+}
