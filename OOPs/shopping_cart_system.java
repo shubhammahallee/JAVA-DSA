@@ -1,7 +1,7 @@
 import java.util.*;
 
 interface ShoppingCart {
-    void addItem(Product product, int quantity);
+    void addItem(Product product, int quantity); 
     void removeItem(Product product);
     List<CartItem> getCartItems();
     double getTotalPrice();
