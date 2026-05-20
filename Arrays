@@ -102,7 +102,7 @@ public class day0 {
                 System.out.print((2 * arr[i]) + " ");
             }
         }
-        System.out.println();
+        System.out.println();  
     }
 
     public static void searchInArray(int[] arr) {
