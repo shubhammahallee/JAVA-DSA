@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class day0 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); 
         System.out.print("Enter Array Size: ");
         int[] arr = new int[sc.nextInt()];
         System.out.print("Enter Array Elements: ");
