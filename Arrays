@@ -119,7 +119,7 @@ public class day0 {
         }
         if (!found) {
             System.out.println("Not Exist");
-        }
+        }   
         sc.close();
     }
 
