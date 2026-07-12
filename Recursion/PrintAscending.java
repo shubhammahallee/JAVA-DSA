@@ -1,6 +1,6 @@
-public static void printAscendingBacktracking(int n) {
-    if (n == 0)
+public static void printAscending(int current, int n) {
+    if (current > n)
         return;
-    printAscendingBacktracking(n - 1);
-    System.out.print(n + " ");
+    System.out.print(current + " ");
+    printAscending(current + 1, n);
 }
